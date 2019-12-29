@@ -1,6 +1,7 @@
 #Parse notes stored in zim wiki to extract all bibtex records and write them
 #to a new bibtex file named with today's date.
- 
+
+# === FILEFORMAT ===
 #Script must be stored directly above the notes folder where the wiki data
 #is stored. It will ignore the empty bibtex template files and will only
 #read wiki files stored as .txt.
@@ -8,9 +9,14 @@
 #Within the wiki, all bibtex records in the notes are enclosed in a bibtex TAG.
 #See line 39 and 43
 
+# === TAGING OF BIB INFORMATION IN YOUR FILES ===
 #The script reads each line and ignores them until it finds the open
 #tag. Then it starts writing each line until it reads the close  tag.
 #A line return is appended so records are separated in the output file.
+
+#Within the markdown document, all bibtex records in the notes you want to in-
+#clude need to be enclosed in a bibtex TAG. In this script I use '<bibtex> 
+#but you can change this easy according to your whishes.
  
 #A list and count of extracted records is provided as a diagnostic
 
@@ -21,6 +27,7 @@ import os, datetime
  
 now=datetime.date.today()
 path='.'
+#Change outfile if you want to use another name for your .bib file
 #outfile='sources_'+str(now)+'.bib'
 outfile='bibref.bib'
 
